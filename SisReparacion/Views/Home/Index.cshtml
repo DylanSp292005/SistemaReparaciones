@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold">Sistema de Reparaciones</h1>
+    <p class="lead text-muted">
+        Gestiona clientes, técnicos, electrodomésticos y reparaciones desde un solo lugar.
+    </p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h2>👥</h2>
+                <h5 class="card-title">Clientes</h5>
+                <p class="card-text">Registra y administra los clientes.</p>
+                <a asp-controller="Clientes" asp-action="Index"
+                   class="btn btn-primary">Ver clientes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h2>🔧</h2>
+                <h5 class="card-title">Técnicos</h5>
+                <p class="card-text">Administra la información de los técnicos.</p>
+                <a asp-controller="Tecnicos" asp-action="Index"
+                   class="btn btn-primary">Ver técnicos</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h2>📺</h2>
+                <h5 class="card-title">Electrodomésticos</h5>
+                <p class="card-text">Consulta y registra electrodomésticos.</p>
+                <a asp-controller="Electrodomesticos" asp-action="Index"
+                   class="btn btn-primary">Ver electrodomésticos</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h2>🛠️</h2>
+                <h5 class="card-title">Reparaciones</h5>
+                <p class="card-text">Gestiona las órdenes de reparación.</p>
+                <a asp-controller="Reparaciones" asp-action="Index"
+                   class="btn btn-primary">Ver reparaciones</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="alert alert-info text-center mt-5">
+    <strong>Bienvenido:</strong> utiliza este sistema para organizar y administrar
+    el servicio de reparación de electrodomésticos.
+</div>

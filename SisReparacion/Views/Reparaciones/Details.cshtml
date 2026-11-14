@@ -1,0 +1,43 @@
+@model SistemaReparaciones.Models.Reparacion
+
+@{
+    ViewData["Title"] = "Detalles de Reparación";
+}
+
+<h1>Detalles de Reparación</h1>
+
+<div>
+    <h4>Información de la reparación</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Model.Descripcion</dd>
+
+        <dt class="col-sm-3">Fecha</dt>
+        <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">Hora</dt>
+        <dd class="col-sm-9">@Model.Hora.ToString(@"hh\:mm")</dd>
+
+        <dt class="col-sm-3">Coste</dt>
+        <dd class="col-sm-9">@Model.Coste.ToString("C")</dd>
+
+        <dt class="col-sm-3">Garantía</dt>
+        <dd class="col-sm-9">@(Model.Garantia ? "Sí" : "No")</dd>
+
+        <dt class="col-sm-3">Cliente</dt>
+        <dd class="col-sm-9">@Model.Cliente?.Nombre @Model.Cliente?.Apellidos</dd>
+
+        <dt class="col-sm-3">Técnico</dt>
+        <dd class="col-sm-9">@Model.Tecnico?.Nombre @Model.Tecnico?.Apellidos</dd>
+
+        <dt class="col-sm-3">Electrodoméstico</dt>
+        <dd class="col-sm-9">@Model.Electrodomestico?.Tipo - @Model.Electrodomestico?.Modelo</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

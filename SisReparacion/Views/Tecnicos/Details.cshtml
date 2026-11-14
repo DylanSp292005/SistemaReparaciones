@@ -1,0 +1,31 @@
+@model SistemaReparaciones.Models.Tecnico
+
+@{
+    ViewData["Title"] = "Detalles del Técnico";
+}
+
+<h1>Detalles del Técnico</h1>
+
+<div>
+    <h4>Información del técnico</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Apellidos</dt>
+        <dd class="col-sm-9">@Model.Apellidos</dd>
+
+        <dt class="col-sm-3">NIF</dt>
+        <dd class="col-sm-9">@Model.NIF</dd>
+
+        <dt class="col-sm-3">Móvil</dt>
+        <dd class="col-sm-9">@Model.Movil</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

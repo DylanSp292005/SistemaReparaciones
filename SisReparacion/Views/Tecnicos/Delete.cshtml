@@ -1,0 +1,35 @@
+@model SistemaReparaciones.Models.Tecnico
+
+@{
+    ViewData["Title"] = "Eliminar Técnico";
+}
+
+<h1>Eliminar Técnico</h1>
+
+<h3 class="text-danger">¿Estás seguro de que deseas eliminar este técnico?</h3>
+
+<div>
+    <h4>Información del técnico</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Model.Nombre</dd>
+
+        <dt class="col-sm-3">Apellidos</dt>
+        <dd class="col-sm-9">@Model.Apellidos</dd>
+
+        <dt class="col-sm-3">NIF</dt>
+        <dd class="col-sm-9">@Model.NIF</dd>
+
+        <dt class="col-sm-3">Móvil</dt>
+        <dd class="col-sm-9">@Model.Movil</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger">Eliminar definitivamente</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

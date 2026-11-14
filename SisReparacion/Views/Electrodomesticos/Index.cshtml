@@ -1,0 +1,37 @@
+@model IEnumerable<SistemaReparaciones.Models.Electrodomestico>
+
+@{
+    ViewData["Title"] = "Electrodomésticos";
+}
+
+<h1>Listado de Electrodomésticos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar nuevo electrodoméstico</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var electrodomestico in Model)
+        {
+            <tr>
+                <td>@electrodomestico.Tipo</td>
+                <td>@electrodomestico.Modelo</td>
+                <td>@electrodomestico.Precio.ToString("C")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@electrodomestico.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@electrodomestico.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@electrodomestico.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

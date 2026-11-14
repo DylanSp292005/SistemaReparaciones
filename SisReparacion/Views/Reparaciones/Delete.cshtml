@@ -1,0 +1,47 @@
+@model SistemaReparaciones.Models.Reparacion
+
+@{
+    ViewData["Title"] = "Eliminar Reparación";
+}
+
+<h1>Eliminar Reparación</h1>
+
+<h3 class="text-danger">¿Estás seguro de que deseas eliminar esta reparación?</h3>
+
+<div>
+    <h4>Información de la reparación</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Model.Descripcion</dd>
+
+        <dt class="col-sm-3">Fecha</dt>
+        <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">Hora</dt>
+        <dd class="col-sm-9">@Model.Hora.ToString(@"hh\:mm")</dd>
+
+        <dt class="col-sm-3">Coste</dt>
+        <dd class="col-sm-9">@Model.Coste.ToString("C")</dd>
+
+        <dt class="col-sm-3">Garantía</dt>
+        <dd class="col-sm-9">@(Model.Garantia ? "Sí" : "No")</dd>
+
+        <dt class="col-sm-3">Cliente</dt>
+        <dd class="col-sm-9">@Model.Cliente?.Nombre</dd>
+
+        <dt class="col-sm-3">Técnico</dt>
+        <dd class="col-sm-9">@Model.Tecnico?.Nombre</dd>
+
+        <dt class="col-sm-3">Electrodoméstico</dt>
+        <dd class="col-sm-9">@Model.Electrodomestico?.Modelo</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger">Eliminar definitivamente</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

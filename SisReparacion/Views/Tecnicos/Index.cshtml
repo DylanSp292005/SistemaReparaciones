@@ -1,0 +1,40 @@
+@model IEnumerable<SistemaReparaciones.Models.Tecnico>
+
+@{
+    ViewData["Title"] = "Técnicos";
+}
+
+<h1>Listado de Técnicos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar nuevo técnico</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>NIF</th>
+            <th>Móvil</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var tecnico in Model)
+        {
+            <tr>
+                <td>@tecnico.Nombre</td>
+                <td>@tecnico.Apellidos</td>
+                <td>@tecnico.NIF</td>
+                <td>@tecnico.Movil</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@tecnico.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@tecnico.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@tecnico.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

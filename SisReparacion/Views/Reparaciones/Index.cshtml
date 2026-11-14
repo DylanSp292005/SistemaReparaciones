@@ -1,0 +1,48 @@
+
+@model IEnumerable<SistemaReparaciones.Models.Reparacion>
+
+@{
+    ViewData["Title"] = "Reparaciones";
+}
+
+<h1>Listado de Reparaciones</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar nueva reparación</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Coste</th>
+            <th>Garantía</th>
+            <th>Cliente</th>
+            <th>Técnico</th>
+            <th>Electrodoméstico</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reparacion in Model)
+        {
+            <tr>
+                <td>@reparacion.Descripcion</td>
+                <td>@reparacion.Fecha.ToString("dd/MM/yyyy")</td>
+                <td>@reparacion.Hora.ToString(@"hh\:mm")</td>
+                <td>@reparacion.Coste.ToString("C")</td>
+                <td>@(reparacion.Garantia ? "Sí" : "No")</td>
+                <td>@reparacion.Cliente?.Nombre</td>
+                <td>@reparacion.Tecnico?.Nombre</td>
+                <td>@reparacion.Electrodomestico?.Modelo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@reparacion.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@reparacion.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@reparacion.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
